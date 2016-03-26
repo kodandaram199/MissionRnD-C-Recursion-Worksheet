@@ -23,14 +23,18 @@ NOTE : Donot use any Global Variables
 #include "stdafx.h"
 
 //You can use this function ,for the actual recursion .Think of similar functions for all other problems.
-int count_pairs(char *str, int len, int start, int end){
-	return 0;
+int count_pairs_wrapper(char *str, int len, int begin, int end){
+	if (begin >= end)
+		return 0;
+	else if (str[begin] == str[begin + 2])
+		return count_pairs_wrapper(str, len, begin + 1, end)+1;
+	else
+		return count_pairs_wrapper(str, len, begin + 1, end);
+
 }
 
 int count_pairs_wrapper(char *str,int len){
-    //Wrapper function which might call a recursive function ,which might take extra parameters .
-	return 0;
-
+	return count_pairs_wrapper(str,len,0,len-1);//function called during recursion.
 }
 
 
